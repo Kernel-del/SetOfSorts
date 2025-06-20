@@ -19,18 +19,18 @@
   </div>
 </div>
 
-# Сортировки
-Чтобы подключить одну из сортировок к своему проекту, просто скопируйте файл по указанному пути: 
-| Название      | Путь до hpp               |
-| ------------- | ------------------------- |
+# Sorting Algorithms
+To include one of the sorting algorithms in your project, simply copy the file from the specified path:  
+| Name           | Path to .hpp              |
+| -------------- | ------------------------- |
 | [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) | `./sorts/quick-sort.hpp` |
 | [Counting Sort](https://en.wikipedia.org/wiki/Counting_sort) | `./sorts/counting-sort.hpp` |
 | [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort) | `./sorts/bubble-sort.hpp` |
 
-Или импортируйте `./sorts.hpp`, чтоб все сразу подключить
+Or import `./sorts.hpp` to include them all at once.
 
-се сортировки сделаны по шаблону и возвращают новый `std::vector` с отсортированным результатом:
-```С++
+All sorting functions follow the same template and return a new `std::vector` with the sorted result:
+```C++
 namespace sorts {
     template <typename T>
     std::vector<T> CountingSort(const std::vector<T>& arr_orig) {

@@ -19,32 +19,33 @@
   </div>
 </div>
 
-# Example, как пользоваться
+# Example: How to Use
 
-### 1. Как устроенна программа:
-  1) Все операции выполняются последовательно, благодаря чему можно задавать множество функций
-  2) В программе есть основной вектор над которым и происходят все вычисления
-  3) Если функции нужно больше одного аргумента, их необходимо перечислять в кавычках
-### 2. Функции:
-  | Категория        | Функция                     | Сокращение  | Описание |
-  |------------------|-----------------------------|-------------|----------|
-  | 📄 Информация    | `--help`                    | `-h`        | Показывает меню помощи |
-  |                  | `--version`                 | `-v`        | Показывает версию программы |
-  |                  | `--type-list`               | `-TL`       | Выводит список поддерживаемых сортировок |
-  | ⚙️ Основное      | `--type <name>`             | `-t`        | Выбирает тип сортировки |
-  |                  | `--sort`                    | `-s`        | Запускает сортировку массива |
-  | 📥 Ввод          | `--input "<числа>"`         | `-i`        | Ввод чисел вручную в кавычках |
-  |                  | `--input-file <путь>`       | `-IF`       | Считывает числа из указанного файла |
-  |                  | `--import-file <путь>`      | `-ImF`      | Импортирует числа из файла созданного с помощью `--export-file` |
-  |                  | `--input-random "N MIN MAX"`| `-IR`       | Генерирует `N` случайных чисел от `MIN` до `MAX` |
-  | 📤 Вывод         | `--output`                  | `-o`        | Выводит массив в консоль |
-  |                  | `--output-file <путь>`      | `-OF`       | Сохраняет массив в указанный файл |
-  |                  | `--export-file <путь>`      | `-EF`       | Экспортирует массив в компактном бинарном виде:<br>первый байт — длина, далее числа со смещением |
+### 1. How the Program Works:
+  1) All operations are performed sequentially, which allows chaining multiple functions
+  2) The program uses a main vector where all computations take place
+  3) If a function needs more than one argument, list them in quotes
 
-# Примеры:
-  * Генерируем массив из 5 случайных чисел от 0 до 9 и выводим в терминал:
+### 2. Functions:
+  | Category         | Function                    | Shortcut   | Description |
+  |------------------|-----------------------------|------------|-------------|
+  | 📄 Info          | `--help`                    | `-h`       | Displays help menu |
+  |                  | `--version`                 | `-v`       | Shows the program version |
+  |                  | `--type-list`               | `-TL`      | Lists supported sorting types |
+  | ⚙️ Main          | `--type <name>`             | `-t`       | Selects sorting type |
+  |                  | `--sort`                    | `-s`       | Starts array sorting |
+  | 📥 Input         | `--input "<numbers>"`       | `-i`       | Manually input numbers in quotes |
+  |                  | `--input-file <path>`       | `-IF`      | Reads numbers from specified file |
+  |                  | `--import-file <path>`      | `-ImF`     | Imports numbers from file created using `--export-file` |
+  |                  | `--input-random "N MIN MAX"`| `-IR`      | Generates `N` random numbers from `MIN` to `MAX` |
+  | 📤 Output        | `--output`                  | `-o`       | Displays array in console |
+  |                  | `--output-file <path>`      | `-OF`      | Saves array to specified file |
+  |                  | `--export-file <path>`      | `-EF`      | Exports array in compact binary format:<br>first byte — length, followed by offset values |
+
+# Examples:
+  * Generate an array of 5 random numbers between 0 and 9 and print to terminal:
     - `./example -IR "5 0 9" -o`
-  * Сохраняем массив {1, 434, 6, 2, 102, 9, -1} сортируем и сохраняем в оптимизированном в виде на файл `base.txt`, читаем и выводим:
+  * Save array {1, 434, 6, 2, 102, 9, -1}, sort it, export in optimized format to `base.txt`, import and display:
     - `./example -i "1 434 6 2 102 9 -1" -s -EF base.txt -ImF base.txt -o`
-  * Импортируем числа из файла `file1.txt` сортируем с помощью Quick sort и сохраняем туда же:
+  * Import numbers from `file1.txt`, sort using Quick sort, and save back:
     - `./example -IF file1.txt -t quick-sort -s -OF file1.txt`
