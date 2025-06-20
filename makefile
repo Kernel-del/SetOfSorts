@@ -1,6 +1,6 @@
 BIN_PATH := ./bin
 EXAMPLE_PATH := ./example
-EXAMPLE_TARGET := example-sort
+EXAMPLE_TARGET := example
 WARNING := -Wall -Wextra
 CXX_FLAGS := -std=c++17 -O3 -march=native
 CXX := g++
