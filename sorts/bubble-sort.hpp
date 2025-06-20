@@ -1,7 +1,7 @@
 #pragma once
 
-
 #include <vector>
+#include <utility>
 
 namespace sorts {
     template <typename T>
@@ -9,13 +9,11 @@ namespace sorts {
         std::vector<T> arr = arr_orig;
         bool sorted = false;
 
-        while (!sorted) {
+        for (size_t i = 1; i < arr.size() && !sorted; ++i) {
             sorted = true;
-            for (size_t i = 1; i < arr.size(); ++i) {
-                if (arr[i-1] > arr[i]) {
-                    T tmp = arr[i];
-                    arr[i] = arr[i-1];
-                    arr[i-1] = tmp;
+            for (size_t j = 1; j < arr.size()-i+1; ++j) {
+                if (arr[j-1] > arr[j]) {
+                    std::swap(arr[j-1], arr[j]);
                     sorted = false;
                 }
             }

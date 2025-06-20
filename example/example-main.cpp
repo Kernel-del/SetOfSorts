@@ -125,9 +125,6 @@ int main(int argc, char** argv) {
             }
         }
     }
-    // std::vector<int64_t> arr;
-    // input(argc, argv, arr);
-    // print<int64_t>(sort<int64_t>(arr)); printf("\n");
 
     
     return 0;

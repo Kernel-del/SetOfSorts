@@ -18,31 +18,40 @@ void print(std::vector<T> arr) {
 
 template <typename T>
 std::vector<T> string_to_num(std::string& argv) {
-    std::vector<T> arr_tmp = {};
+    std::vector<T> arr_tmp;
     T tmp = 0;
     T e = 0;
     bool minus = false;
+    bool e_minus = false;
     bool is_e=false;
     bool num_writing = false;
 
     for (size_t i = 0; i < argv.length(); ++i) {
-        if (argv[i]>=48 && argv[i]<=57) {
-            num_writing = true;
-            is_e ? e = e * 10 + argv[i] - 48 :
-                   tmp = tmp * 10 + argv[i] - 48;
-        } else if (argv[i] == ' ' || argv[i] == '\n') {
-            arr_tmp.push_back(minus ? -tmp * pow(10, e) : tmp * pow(10, e));
-            tmp = 0; e = 0; minus = false; num_writing = false; is_e = false;
-        } else if (argv[i] == '-') {
-            minus=true;
-        } else if (argv[i] == ',') {
+        char ch = argv[i];
 
-        } else if (argv[i] == 'e') {
+        if (std::isdigit(ch)) {
+            num_writing = true;
+            if (is_e)
+                e = e * 10 + (ch - '0');
+            else
+                tmp = tmp * 10 + (ch - '0');
+
+        } else if (ch == ' ' || ch == '\n') {
+            if (num_writing) {
+                T value = tmp * std::pow(10, (e_minus ? -e : e));
+                arr_tmp.push_back(minus ? -value : value);
+                tmp = 0; e = 0; minus = false; e_minus = false; is_e = false; num_writing = false;
+            }
+        } else if (ch == '-') {
+            is_e ? e_minus=true : minus=true;
+        } else if (ch == ','|| ch == '\t') {
+            continue;
+        } else if (ch == 'e' || ch == 'E') {
             is_e = true;
             e=0;
         } else {
             printf("\"%c\" не является поддерживаемым значением!\n", argv[i]);
-            throw ;
+            throw std::invalid_argument("Неподдерживаемый символ");
         }
     }
     if (num_writing) arr_tmp.push_back(minus ? -tmp * pow(10, e) : tmp * pow(10, e));
@@ -50,17 +59,14 @@ std::vector<T> string_to_num(std::string& argv) {
 }
 
 std::string file_to_string(const std::string& file_name) {
-    char buffer[256];
-    std::string str;
+    std::ifstream file(file_name, std::ios::binary | std::ios::ate);
+    if (!file) throw std::invalid_argument("Нет такого файла("+file_name+")");
 
-    FILE *fp = fopen(file_name.c_str(), "r");
-    if (fp) {
-        while ((fgets(buffer, 245, fp))!=NULL) {
-            str.append(buffer);
-        }
-        fclose(fp);
-    }
-
+    std::streamsize size = file.tellg();
+    std::string str(size, '\0');
+    file.seekg(0);
+    file.read(&str[0], size);
+    
     return str;
 }
 

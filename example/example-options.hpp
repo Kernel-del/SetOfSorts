@@ -40,7 +40,7 @@ namespace options_list {
         }
 
         void get_version() {
-            printf("Версия — 0.1\n");
+            printf("Версия — 0.12\n");
         }
 
         void get_type_list() {
@@ -48,9 +48,9 @@ namespace options_list {
                 "Сортировки:\n"
                     "\tO(n):\n"
                         "\t\tcounting-sort — (https://en.wikipedia.org/wiki/Counting_sort)\n"
-                    "\tO(n * log n):\n"
-                        "\t\tquick-sort — (https://en.wikipedia.org/wiki/Quicksort)\n"
+                    "\tO(n * log n):\n\n"
                     "\tO(n ^ 2):\n"
+                        "\t\tquick-sort — (https://en.wikipedia.org/wiki/Quicksort)\n"
                         "\t\tbubble-sort — (https://en.wikipedia.org/wiki/Bubble_sort)"
             );
         }
@@ -71,8 +71,9 @@ namespace options_list {
         }
 
         void export_file(const std::string& file_name) {
-            std::string str_tmp = "";
+            std::string str_tmp;
             char type_size = sizeof(type_num);
+            str_tmp.reserve(1 + sizeof(type_num) * arr.size());
 
             str_tmp.append(reinterpret_cast<const char*>(&type_size), sizeof(type_size));
             
@@ -107,6 +108,8 @@ namespace options_list {
             type_num max_num = arr_tmp[2];
 
             std::srand(static_cast<unsigned>(std::time(nullptr)));
+            arr.clear();
+            arr.reserve(count);
             for (size_t i = 0; i < count; ++i) {
                 arr.push_back((rand()%(max_num+1-min_num))+min_num);
             }
