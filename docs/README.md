@@ -48,7 +48,7 @@ Here’s how you generate 1000 random numbers between 0 and 256, save the origin
 ./bin/example -IR "1e3 0 256" -OF array.txt -t quick-sort -s -OF array_sorted.txt
 ```
 ---
-# Документация
+# Documentation
 <ul>
   <li><a href="en/sorts.md" id="next-sorts"><strong>Sorting Algorithms</strong></a></li>
   <li><a href="en/example.md" id="next-example"><strong>Example: How to Use</strong></a></li>
