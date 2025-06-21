@@ -12,6 +12,7 @@ const std::unordered_map<std::string, std::function<std::vector<type_num>(const 
     {"counting-sort", sorts::CountingSort<type_num>},
     {"quick-sort", sorts::QuickSort<type_num>},
     {"bubble-sort", sorts::BubbleSort<type_num>},
+    {"merge-sort", sorts::MergeSort<type_num>},
 };
 
 

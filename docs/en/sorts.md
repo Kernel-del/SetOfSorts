@@ -26,6 +26,7 @@ To include one of the sorting algorithms in your project, simply copy the file f
 | [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) | `./sorts/quick-sort.hpp` |
 | [Counting Sort](https://en.wikipedia.org/wiki/Counting_sort) | `./sorts/counting-sort.hpp` |
 | [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort) | `./sorts/bubble-sort.hpp` |
+| [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort) | `./sorts/merge-sort.hpp` |
 
 Or import `./sorts.hpp` to include them all at once.
 

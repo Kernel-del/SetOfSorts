@@ -21,10 +21,11 @@
 
 This project was created to avoid endlessly searching for different sorting algorithms and their comparisons online — instead, it lets you experiment hands-on, understand their limitations, and see how they behave under various conditions. Over time, I will add more features, but for now, here’s what’s implemented:
 * The `Example` app, which lets you manipulate arrays
-* Three types of sorting algorithms:
+* Implemented sortings:
   * Bubble Sort
   * Counting Sort
   * Quick Sort
+  * Merge sort
 
 ----
 # Example
