@@ -25,7 +25,8 @@ This project was created to avoid endlessly searching for different sorting algo
   * Bubble Sort
   * Counting Sort
   * Quick Sort
-  * Merge sort
+  * Merge Sort
+  * Insertion Sort
 
 ----
 # Example

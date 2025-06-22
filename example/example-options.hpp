@@ -53,6 +53,7 @@ namespace options_list {
                     "\tO(n ^ 2):\n"
                         "\t\tquick-sort — (https://en.wikipedia.org/wiki/Quicksort)\n"
                         "\t\tbubble-sort — (https://en.wikipedia.org/wiki/Bubble_sort)"
+                        "\t\tinsertion-sort — (https://en.wikipedia.org/wiki/Insertion_sort)"
             );
         }
     }

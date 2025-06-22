@@ -24,8 +24,9 @@
 * Реализованные сортировки:
   * Bubble Sort
   * Counting Sort
-  * Quick sort
-  * Merge sort
+  * Quick Sort
+  * Merge Sort
+  * Insertion Sort
 
 ----
 # Example
