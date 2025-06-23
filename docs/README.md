@@ -19,8 +19,8 @@
 ![Static Badge](https://img.shields.io/badge/17+-blue?logo=c%2B%2B)
 # INFO
 
-This project was created to avoid endlessly searching for different sorting algorithms and their comparisons online — instead, it lets you experiment hands-on, understand their limitations, and see how they behave under various conditions. Over time, I will add more features, but for now, here’s what’s implemented:
-* The `Example` app, which lets you manipulate arrays
+This project is created to demonstrate the speed of various sorting algorithms, understand their limitations, and how they work under different circumstances. Over time, I will be adding new features, but let's move on to what has already been done:
+* Application `Example`, where you can test sorting algorithms
 * Implemented sortings:
   * Bubble Sort
   * Counting Sort
@@ -32,19 +32,19 @@ This project was created to avoid endlessly searching for different sorting algo
 # Example
 
 ### How to build?
-To compile the project:
+To use the project, you need to:
 1. `git clone https://github.com/Kernel-del/SetOfSorts.git` - Clone the project from GitHub
 2. `cd ./SetOfSorts` - Enter the downloaded directory
 3. `make` - Compile the project
-4. `cd bin` - Go to the compiled output directory
+4. `cd bin` - go to the directory with the compiled files
 5. Done!
 
     *(I recommend reading `./example -h -TL` to explore the available options)*
 ---
 ### How to use it?
-The syntax is pretty straightforward. You have one working array, and you can populate it with other arrays via terminal input (`-i`, `-IR`) or from a file (`-IF`, `-ImF`), choose a sorting algorithm (`-t`), sort it (`-s`), and output the result either to the terminal (`-o`) or to a file (`-OF`, `-EF`).
+The syntax is quite clear. You have one array, into which you can write data through the terminal (`-i`, `-IR`) or a file (`-IF`, `-ImF`), assign a sorting algorithm (`-t`), sort (`-s`), and output the result to the terminal (`-o`) or to a file (`-OF`, `-EF`).
 
-Here’s how you generate 1000 random numbers between 0 and 256, save the original array to `array.txt`, and save the sorted one using `Quick sort` into `array_sorted.txt`:
+Example of generating 1000 random numbers from 0 to 256, writing them to `array.txt`, and sorting using `Quick Sort` into `array_sorted.txt`:
 ```bash
 ./bin/example -IR "1e3 0 256" -OF array.txt -t quick-sort -s -OF array_sorted.txt
 ```
