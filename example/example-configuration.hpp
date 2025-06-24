@@ -14,6 +14,7 @@ const std::unordered_map<std::string, std::function<std::vector<type_num>(const 
     {"bubble-sort", sorts::BubbleSort<type_num>},
     {"insertion-sort", sorts::InsertionSort<type_num>},
     {"merge-sort", sorts::MergeSort<type_num>},
+    {"cocktail-sort", sorts::CocktailSort<type_num>},
 };
 
 

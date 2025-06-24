@@ -46,7 +46,7 @@ namespace options_list {
         void get_type_list() {
             printf(
                 "Сортировки:\n"
-                    "\tO(n):\n"
+                    "\tO(n + K):\n"
                         "\t\tcounting-sort — (https://en.wikipedia.org/wiki/Counting_sort)\n"
                     "\tO(n * log n):\n"
                         "\t\tmerge-sort — (https://en.wikipedia.org/wiki/Merge_sort)\n"
@@ -54,6 +54,7 @@ namespace options_list {
                         "\t\tquick-sort — (https://en.wikipedia.org/wiki/Quicksort)\n"
                         "\t\tbubble-sort — (https://en.wikipedia.org/wiki/Bubble_sort)"
                         "\t\tinsertion-sort — (https://en.wikipedia.org/wiki/Insertion_sort)"
+                        "\t\tcocktail-sort — (https://en.wikipedia.org/wiki/Cocktail_shaker_sort)\n"
             );
         }
     }

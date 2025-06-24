@@ -27,6 +27,7 @@ This project is created to demonstrate the speed of various sorting algorithms, 
   * Quick Sort
   * Merge Sort
   * Insertion Sort
+  * Cocktail Sort
 
 ----
 # Example

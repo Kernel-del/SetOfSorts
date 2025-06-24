@@ -28,6 +28,7 @@
   * Quick Sort
   * Merge Sort
   * Insertion Sort
+  * Cocktail Sort
 
 ----
 # Example

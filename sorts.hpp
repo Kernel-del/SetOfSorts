@@ -6,3 +6,4 @@
 #include "sorts/bubble-sort.hpp"
 #include "sorts/merge-sort.hpp"
 #include "sorts/insertion-sort.hpp"
+#include "sorts/cocktail-sort.hpp"

@@ -28,6 +28,7 @@ To include one of the sorting algorithms in your project, simply copy the file f
 | [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort) | `./sorts/bubble-sort.hpp` |
 | [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort) | `./sorts/merge-sort.hpp` |
 | [Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort) | `./sorts/insertion-sort.hpp` |
+| [Cocktail Sort](https://en.wikipedia.org/wiki/Cocktail_shaker_sort) | `./sorts/cocktail-sort.hpp` |
 
 Or import `./sorts.hpp` to include them all at once.
 
