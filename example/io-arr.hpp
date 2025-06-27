@@ -44,14 +44,14 @@ std::vector<T> string_to_num(std::string& argv) {
             }
         } else if (ch == '-') {
             is_e ? e_minus=true : minus=true;
-        } else if (ch == ','|| ch == '\t') {
+        } else if (ch == '\''|| ch == '\t') {
             continue;
         } else if (ch == 'e' || ch == 'E') {
             is_e = true;
             e=0;
         } else {
-            printf("\"%c\" не является поддерживаемым значением!\n", argv[i]);
-            throw std::invalid_argument("Неподдерживаемый символ");
+            printf("'%c' is not a supported value!\n", argv[i]);
+            throw std::invalid_argument("Unsupported character");
         }
     }
     if (num_writing) arr_tmp.push_back(minus ? -tmp * pow(10, e) : tmp * pow(10, e));
@@ -60,7 +60,7 @@ std::vector<T> string_to_num(std::string& argv) {
 
 std::string file_to_string(const std::string& file_name) {
     std::ifstream file(file_name, std::ios::binary | std::ios::ate);
-    if (!file) throw std::invalid_argument("Нет такого файла("+file_name+")");
+    if (!file) throw std::invalid_argument("No such file (" + file_name + ")");
 
     std::streamsize size = file.tellg();
     std::string str(size, '\0');

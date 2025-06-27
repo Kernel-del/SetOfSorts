@@ -37,7 +37,7 @@
 Для использования проекта нужно:
 1. `git clone https://github.com/Kernel-del/SetOfSorts.git` - скопировать проект с GitHub
 2. `cd  ./SetOfSorts` - Перейти в скачанную директорию
-3. `make` - скомпилировать проект
+3. `make` - скомпилировать проект(для Windows: `make build-win`, для linux: `make build-linux`)
 4. `cd bin` - Перейти в директорию со скомпилированным файлов
 5. Пользуйтесь! 
 

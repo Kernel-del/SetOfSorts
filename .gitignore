@@ -1,0 +1,14 @@
+*
+
+!/makefile
+!/sorts.hpp
+!/LICENSE
+!/.gitignore
+
+!/sorts/
+!/example/
+!/docs/
+
+!/sorts/*.*pp
+!/example/*.*pp
+!/docs/**

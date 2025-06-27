@@ -7,54 +7,53 @@
 #include <stdio.h>
 #include <vector>
 #include <functional>
-#include <iostream>
+#include <cstdint>
 
 
 namespace options_list {
     namespace info {
         void get_help() {
             printf(
-                "Эта программа является сборником сортировок\n\n"
+                "This program is a collection of sorting algorithms\n\n"
 
-                "Посмотреть информацию о программе:\n"
-                    "\t--help(-h) — Вызывает меню помощи\n"
-                    "\t--version(-v) — показывает версию\n"
-                    "\t--type-list(-TL) — выводит список поддерживаемых сортировок\n"
-                "Основные функции:\n"
-                    "\t--type(-t) выбирает режим сортировки указанный после\n"
-                    "\t--sort(-s) сортирует массив\n"
-                    "\tВвод(поддерживает только один за раз):\n"
-                        "\t\t--input(-i) \"...\" — копирует числа в кавычках\n"
-                        "\t\t--input-file(-IF) — копирует числа в файле указанном после\n"
-                        "\t\t--import-file(-ImF) — копирует числа в файле указанном после\n"
-                        "\t\t--input-random(-IR) — заполняет массив случайными цифрами,\n"
-                        "\t\t                      |сначало пишите количество, затем min.val. и max.val."
-                        ""\
-                    "\tВывод:\n"
-                        "\t\t--output(-o) — выводит массив\n"
-                        "\t\t--output-file(-OF) — сохроняет массив в файл\n"
-                        "\t\t--export-file(-EF) — сохроняет массив в файл в более компактном виде,\n"
-                        "\t\t                     |где первые 8 byte это длина чисел,\n"
-                        "\t\t                     |а дальше идут сами числа со смещением\n"
+                "To view information about the program:\n"
+                    "\t--help(-h) - Displays the help menu\n"
+                    "\t--version(-v) - Shows the version\n"
+                    "\t--type-list(-TL) - Outputs a list of supported sorting algorithms\n"
+                "Main functions:\n"
+                    "\t--type(-t) selects the sorting mode specified after it\n"
+                    "\t--sort(-s) sorts the array\n"
+                    "\tInput (only one type at a time is supported):\n"
+                        "\t\t--input(-i) \"...\" - copies numbers inside the quotes\n"
+                        "\t\t--input-file(-IF) - copies numbers from the specified file\n"
+                        "\t\t--import-file(-ImF) - copies numbers from the specified file\n"
+                        "\t\t--input-random(-IR) - fills the array with random numbers,\n"
+                        "\t\t                      |first specify the count, then min and max values"
+                    "\tOutput:\n"
+                        "\t\t--output(-o) - outputs the array\n"
+                        "\t\t--output-file(-OF) - saves the array to a file\n"
+                        "\t\t--export-file(-EF) - saves the array to a file in a more compact format,\n"
+                        "\t\t                     |where the first 8 bytes are the number length,\n"
+                        "\t\t                     |followed by the numbers with an offset\n"
             );
         }
 
         void get_version() {
-            printf("Версия — 0.12\n");
+            printf("Version - 0.13\n");
         }
 
         void get_type_list() {
             printf(
-                "Сортировки:\n"
+                "Sorting:\n"
                     "\tO(n + K):\n"
-                        "\t\tcounting-sort — (https://en.wikipedia.org/wiki/Counting_sort)\n"
+                        "\t\tcounting-sort - (https://en.wikipedia.org/wiki/Counting_sort)\n"
                     "\tO(n * log n):\n"
-                        "\t\tmerge-sort — (https://en.wikipedia.org/wiki/Merge_sort)\n"
+                        "\t\tmerge-sort - (https://en.wikipedia.org/wiki/Merge_sort)\n"
                     "\tO(n ^ 2):\n"
-                        "\t\tquick-sort — (https://en.wikipedia.org/wiki/Quicksort)\n"
-                        "\t\tbubble-sort — (https://en.wikipedia.org/wiki/Bubble_sort)"
-                        "\t\tinsertion-sort — (https://en.wikipedia.org/wiki/Insertion_sort)"
-                        "\t\tcocktail-sort — (https://en.wikipedia.org/wiki/Cocktail_shaker_sort)\n"
+                        "\t\tquick-sort - (https://en.wikipedia.org/wiki/Quicksort)\n"
+                        "\t\tbubble-sort - (https://en.wikipedia.org/wiki/Bubble_sort)\n"
+                        "\t\tinsertion-sort - (https://en.wikipedia.org/wiki/Insertion_sort)\n"
+                        "\t\tcocktail-sort - (https://en.wikipedia.org/wiki/Cocktail_shaker_sort)\n"
             );
         }
     }
@@ -64,7 +63,7 @@ namespace options_list {
             if (type_search != sort_list.end()) {
                 type_sort = type_search->second;
             } else {
-                printf("Нет такой сортировки %s в базе данных!\n", type.c_str());
+                printf("No such sorting algorithm '%s' in the database!\n", type.c_str());
                 throw ;
             }
         }
@@ -126,11 +125,11 @@ namespace options_list {
 
         void import_file(std::string file_name) {
             arr = {};
-            u_int8_t num_byte_size;
+            uint8_t num_byte_size;
 
             FILE *fp = fopen(file_name.c_str(), "r");
             if (fread(&num_byte_size, 1, 1, fp) == 1) {
-                u_int8_t buffer[8];  // поддержка до 8 байт на число
+                uint8_t buffer[8];  // поддержка до 8 байт на число
 
                 while (fread(buffer, 1, num_byte_size, fp) == num_byte_size) {
                     type_num value = 0;

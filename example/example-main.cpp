@@ -8,7 +8,7 @@
 
 int main(int argc, char** argv) {
     #ifdef DEBUG
-        printf("[DEBUG] Запуск программы с параметрами:\n");
+        printf("[DEBUG] Program started with the following parameters:\n");
         for (char** i = argv; i < argv+argc-1; ++i) printf("\t\"%s\"\n", *i);
     #endif
 
@@ -90,7 +90,7 @@ int main(int argc, char** argv) {
             if (func != options_oneparam.end()) {
                 if (++i >= argc) {
                     options_list::info::get_help();
-                    printf("В функции %s не указан параметр!\n", argv[i-1]);
+                    printf("Missing parameter in function '%s'!\n", argv[i-1]);
                     return 1;
                 }
                 
@@ -115,12 +115,12 @@ int main(int argc, char** argv) {
                 }
 
                 #ifdef DEBUG
-                    printf("#[DEBUG] Получен параметр для функции \"%s\": \"%s\"\n", arg.c_str(), param_string.c_str());
+                    printf("#[DEBUG] Received parameter for function \"%s\": \"%s\"\n", arg.c_str(), param_string.c_str());
                 #endif
                 func->second(param_string);
             } else {
                 options_list::info::get_help();
-                printf("Функция %s не найдена!\n", argv[i]);
+                printf("Function '%s' not found!\n", argv[i]);
                 return 1;
             }
         }

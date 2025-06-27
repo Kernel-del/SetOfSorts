@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <functional>
+#include <cstdint>
 
 
 using type_num = int32_t;

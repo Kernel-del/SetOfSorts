@@ -36,7 +36,7 @@ This project is created to demonstrate the speed of various sorting algorithms, 
 To use the project, you need to:
 1. `git clone https://github.com/Kernel-del/SetOfSorts.git` - Clone the project from GitHub
 2. `cd ./SetOfSorts` - Enter the downloaded directory
-3. `make` - Compile the project
+3. `make` – compile the project (for Windows: `make build-win`, for Linux: `make build-linux`)
 4. `cd bin` - go to the directory with the compiled files
 5. Done!
 
